@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Udatum</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="./assets1/js/baseurl.js"></script>
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <style>
+        .nav-item:hover{
+            cursor:pointer;
+        }
+        .asdfas:hover{
+            cursor:pointer;
+        }
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+  background-color: orange;
+}
+
+.container:hover .overlay {
+  opacity: 0.8;
+}
+
+.icon {
+  color: white;
+  font-size: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.fa-user:hover {
+  color: #eee;
+}
+    </style>
+</head>
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background-color: #3b5fdd !important;background-image: none  !important;">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-text mx-3"><span>Admin Panel</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+
+                    <!-- <li class="nav-item" onclick="all_physicians()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>All Physicians</span></a></li>
+                    <li class="nav-item" onclick="all_orders()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View All Orders</span></a></li> -->
+                    <!-- <li class="nav-item" onclick="ajax_sll_view_category()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View All Categories</span></a></li>     
+                    <li class="nav-item" onclick="ajax_call_add_employee()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Add Employees</span></a></li>        
+                    <li class="nav-item" onclick="ajax_call_view_employee()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View Active Employees</span></a></li>  
+                    <li class="nav-item" onclick="ajax_call_view_employee_Archieve()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View Employees archive</span></a></li>                       
+                    <li class="nav-item" onclick="ajax_call_upload_document()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Upload Documents</span></a></li>                       
+                    <li class="nav-item" onclick="ajax_call_documents_from_employees()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Documents From Employees</span></a></li>
+                    <li class="nav-item" onclick="ajax_call_update_policy_request()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Updated Policy Approval</span></a></li>
+                    <li class="nav-item" onclick="ajax_call_register_new_tool()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Register New Tool</span></a></li>
+                    <li class="nav-item" onclick="ajax_call_view_tools()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View All Tools</span></a></li>                    
+                    <li class="nav-item" onclick="ajax_call_received_requests()"><a class="nav-link"><i class="far fa-user-circle"></i><span>Received Requests <span class="px-1" style="border:1px solid white;border-radius:50%"></span></span></a></li>
+                    <li class="nav-item" onclick="ajax_call_variation_show()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View All Variations</span></a></li> -->
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid">
+                        <div class="ml-auto d-none d-sm-block">
+                            <img src="../assets1/images1/logo-dark.svg" style="max-width: 80px;">
+                            <!--<img src="https://secureservercdn.net/50.62.172.157/x7e.438.myftpupload.com/wp-content/uploads/2018/06/metrocare_logov.png" style="width:60px; height:auto;" />-->
+                        </div>
+                        <ul class="navbar-nav flex-nowrap ml-auto">
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"><span class="d-none d-lg-inline mr-2 text-gray-600 small"></span><img class="border rounded-circle img-profile" src="../assets1/images1/logo-dark.svg"></a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown no-arrow mt-3">
+                            <a class="dropdown-item" href="logout.html"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div id="showhere">
+                    <div class="col-12">
+                        <h3 class="text-center my-5">Change Image</h3>
+                        <div class="container">
+                            <img src="" id="current_image" alt="Error" class="image p-3" style="border: 1px solid black;">
+                            <div class=" text-center align-middle">
+                            <input class="btn btn-primary mt-5" onchange="change_image()" id="new_image" type="file">
+                            
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="col-md-6 mx-auto">
+                            <form id="update-text">
+                                <div class="mb-3">
+                                  <label for="main_heading" class="form-label">Main Heading</label>
+                                  <input type="text" class="form-control" id="main_heading">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="area" class="form-label">Location</label>
+                                    <input type="text" class="form-control" id="area">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="status" class="form-label">Status</label>
+                                    <input type="text" class="form-control" id="status">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="paragraph" class="form-label">Details</label>
+                                    <textarea type="text" class="form-control" id="paragraph" rows="5"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </form>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Mexit.it</span></div>
+                </div>
+            </footer> -->
+
+        <div class="loading" id="loader1" style="visibility: hidden;">Loading&#8230;</div>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        <div id="div11"></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/script.min.js"></script>
+    <script src="./assets/js/calls.js"></script>
+    <!-- <script src="./auth.js"></script> -->
+    <script>
+        
+var token = localStorage.getItem("admin_token");
+document.getElementById("loader1").style.visibility = "visible";
+                $.ajax({
+                type: "get",
+                url: `${baseurl}/get-image-name/`,
+                success: function (result) {
+                    console.log(result);
+                    document.getElementById("current_image").src = result.dataUrl;
+                    document.getElementById("loader1").style.visibility = "hidden";
+                    // $("#showhere").html(result);
+                },
+                error: function(error) {
+                    // console.log(error)
+                    document.getElementById("loader1").style.visibility = "hidden";
+                    if(error.responseJSON.message== "Access token is not valid"){
+                        // alert("Not logged In")
+                        window.location.replace("./login.html")
+                    }
+                }
+            });
+            document.getElementById("loader1").style.visibility = "visible";
+                $.ajax({
+                type: "get",
+                url: `${baseurl}/get-texts/`,
+                success: function (result) {
+                    // console.log(result.texts[0]);
+                    document.getElementById("main_heading").value = result.texts[0].main_heading;
+            document.getElementById("area").value = result.texts[0].area;
+            document.getElementById("status").value = result.texts[0].status;
+            document.getElementById("paragraph").value = result.texts[0].paragraph;
+                    // $("#showhere").html(result);
+                },
+                error: function(error) {
+                    // console.log(error)
+                    document.getElementById("loader1").style.visibility = "hidden";
+                    if(error.responseJSON.message== "Access token is not valid"){
+                        // alert("Not logged In")
+                        window.location.replace("./login.html")
+                    }
+                }
+            });
+
+        function change_image(){
+            // console.log(token);
+            document.getElementById("loader1").style.visibility = "visible";
+            var image = document.getElementById("new_image");
+            var file = image.files[0];
+            var formData = new FormData();
+            formData.append('image', file);
+            // data = JSON.stringify({
+            //     image: image
+            // })
+            $.ajax({
+                type: "post",
+                url: `${baseurl}/admin/change-image`,
+                data: formData,
+                processData: false,  // Prevent jQuery from processing the data
+                contentType: false,  // Set content type to false as FormData will
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                success: function (result) {
+                    // console.log(result)
+                                        Swal.fire({
+                        icon: 'success',
+                        title: 'Successful!',
+                        text: "File Uploaded Successfully!",
+                        allowOutsideClick: false
+                    })
+                    $('button.swal2-confirm').click(function () {
+                        window.location.reload();
+                    });
+                    document.getElementById("loader1").style.visibility = "hidden";
+                    // $("#showhere").html(result);
+                }
+            });            
+    }
+    
+    
+    
+
+        var request;
+        $("#update-text").submit(function (event) {
+            // console.log(token);
+              // Prevent default posting of form - put here to work in case of errors
+            event.preventDefault();
+
+            // Abort any pending request
+            if (request) {
+                request.abort();
+            }
+            document.getElementById("loader1").style.visibility = "visible";
+            var main_heading = document.getElementById("main_heading").value;
+            var area = document.getElementById("area").value;
+            var status = document.getElementById("status").value;
+            var paragraph = document.getElementById("paragraph").value;
+            // console.log(main_heading)
+            // console.log(area)
+            // console.log(status)
+            // console.log(paragraph)
+            
+            data = {
+                main_heading: main_heading,
+                area: area,
+                status: status,
+                paragraph: paragraph,
+            }
+            $.ajax({
+                type: "post",
+                url: `${baseurl}/admin/change-text`,
+                data: data,
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                success: function (result) {
+                    // console.log(result)
+                        Swal.fire({
+                        icon: 'success',
+                        title: 'Successful!',
+                        text: "Text Updated Successfully!",
+                        allowOutsideClick: false
+                    })
+                    $('button.swal2-confirm').click(function () {
+                        window.location.reload();
+                    });
+                    document.getElementById("loader1").style.visibility = "hidden";
+                    // $("#showhere").html(result);
+                }
+            });            
+    });
+    
+    
+    
+    
+            //     function approve_doctor(x){
+    //         // alert(x);
+    //         $.ajax({
+    //             type: "put",
+    //             url: `${baseurl}/admin/approve/${x}`,
+    //             headers: {
+    //             "Authorization": `Bearer ${token}`,
+    //             "Content-Type": "application/json",
+    //             },
+    //             success: function (result) {
+    //                 console.log(result.message);
+    //                 Swal.fire({
+    //                     icon: 'success',
+    //                     title: 'Successful!',
+    //                     text: result.message,
+    //                     allowOutsideClick: false
+    //                 })
+    //                 $('button.swal2-confirm').click(function () {
+    //                     all_physicians();
+    //                 });
+    //                 document.getElementById("loader1").style.visibility = "hidden";
+    //             }
+    //     });
+    // }
+    //     function getdoctor(x){
+    //         // alert(x)
+    //         document.getElementById("loader1").style.visibility = "visible";
+    //         var i = 0;
+    //         $.ajax({
+    //                 type: "get",
+    //                 url: `./doctor_details.html`,
+    //                 headers: {
+    //                 "Authorization": `Bearer ${token}`,
+    //                 "Content-Type": "application/json",
+    //                 },
+    //                 success: function (result) {
+    //                     $("#div11").html(result);
+    //                     $.ajax({
+    //                         type: "get",
+    //                         url: `${baseurl}/all-patients-of-one-doctor/${x}`,
+    //                         headers: {
+    //                         "Authorization": `Bearer ${token}`,
+    //                         "Content-Type": "application/json",
+    //                         },
+    //                         success: function (response) {
+    //                             console.log(response.patients);
+    //                             // totalPatients
+    //                             $("#numberofpatients").html(`[${response.totalPatients}]`);
+    //                             response.patients.forEach(key => {
+    //                                 // if(key.time_spent == null){
+    //                                 //     key.time_spent = 0;
+    //                                 // }
+    //                                 var timespent = toHoursAndMinutes(key.time_spent)
+    //                                 var dateFormat = new Date(key.created_at);
+    //                                 var dateFormat1 = new Date(key.date_of_birth);
+                                    
+    //                                 $("#all_pats_data").append(`
+    //                                 <tr>
+    //                                     <th scope="row">${i}</th>
+    //                                     <td><a class="mupointer" type="button" onclick="getdoctor(${key.pid})">${key.name}</a></td>
+    //                                     <td><a class="mupointer" type="button" onclick="getdoctor(${key.pid})">${key.email}</a></td>
+    //                                     <td>${key.password}</td>
+    //                                     <td>${dateFormat.getDate()} ${(getMonthName(dateFormat.getMonth() + 1))} ${dateFormat.getFullYear()} ${dateFormat.getHours()}:${dateFormat.getMinutes()}:${dateFormat.getSeconds()}</td>
+    //                                     <td>${dateFormat1.getDate() - 1} ${(getMonthName(dateFormat1.getMonth() + 1))} ${dateFormat1.getFullYear()}</td>
+    //                                     <td>${key.doctor_name}</td>
+    //                                     <td>${timespent.h}:${timespent.m}:${timespent.s}</td>
+    //                                 </tr>                        
+    //                             `);
+    //                             i++;
+    //                             });
+                                
+    //                             // $("#div11").html(result);
+    //                             document.getElementById("loader1").style.visibility = "hidden";
+                                
+    //                         }
+    //                     });
+
+    //                 }
+    //             });
+    //     }
+
+        // console.log(toHoursAndMinutes(60));
+
+        // function ajax_call_view_category(){
+        //         $.ajax({
+        //         type: "post",
+        //         url: "view-category.php",
+        //         success: function (result) {
+        //             $("#showhere").html(result);
+        //         }
+        //     });
+        // }
+        // function ajax_call_add_employee(){
+        //         $.ajax({
+        //         type: "post",
+        //         url: "add-employee.php",
+        //         success: function (result) {
+        //             $("#showhere").html(result);
+        //         }
+        //     });
+        // }
+        //         function ajax_call_view_employee(){
+        //         $.ajax({
+        //         type: "post",
+        //         url: "view-employee.php",
+        //         success: function (result) {
+        //             $("#showhere").html(result);
+        //         }
+        //     });
+        // }
+        //         function ajax_call_upload_document(){
+        //         $.ajax({
+        //         type: "post",
+        //         url: "upload_documents.php",
+        //         success: function (result) {
+        //             $("#showhere").html(result);
+        //         }
+        //     });
+        // }        
+        //         function ajax_call_documents_from_employees(){
+        //         $.ajax({
+        //         type: "post",
+        //         url: "documents_from_employees.php",
+        //         success: function (result) {
+        //             $("#showhere").html(result);
+        //         }
+        //     });
+        // }
+        // function ajax_call_update_policy_request(){
+        //         $.ajax({
+        //         type: "post",
+        //         url: "new-policy-request.php",
+        //         success: function (result) {
+        //             $("#showhere").html(result);
+        //         }
+        //     });
+        // }                
+        // function ajax_call_view_employee_Archieve(){
+        //     $.ajax({
+        //         type: "post",
+        //         url: "employee_archieve_controller.php",
+        //         success: function (result) {
+        //             $("#showhere").html(result);
+        //         }
+        //     });
+        // }
+        // function ajax_call_register_new_tool(){
+        //     $.ajax({
+        //         type: "post",
+        //         url: "add_new_tool.php",
+        //         success: function (result) {
+        //             $("#showhere").html(result);
+        //         }
+        //     });
+        // }
+        // function ajax_call_view_tools(){
+        //     $.ajax({
+        //         type: "post",
+        //         url: "view_tools.php",
+        //         success: function (result) {
+        //             $("#showhere").html(result);
+        //         }
+        //     });
+
+        // }
+        // function ajax_call_received_requests(){
+        //     $.ajax({
+        //     type: "post",
+        //     url: "received_requests.php",
+        //     success: function(result){
+        //         $("#showhere").html(result);
+        //     }
+        // });
+        // }
+        // function ajax_call_variation_show(){
+        //     var x1 = "x1";
+        //     document.getElementById("loader1").style.visibility = "visible";
+        //     $.ajax({
+        //     type: "post",
+        //     data:{x1:x1},
+        //     url: "controller.php",
+        //     success: function(result){
+        //         $("#showhere").html(result);
+        //         document.getElementById("loader1").style.visibility = "hidden";
+        //     }
+        // }); 
+        // }
+    </script>
+</body>
+
+</html>
